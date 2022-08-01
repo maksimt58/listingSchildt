@@ -1,6 +1,7 @@
 package com.maksim_tatarintsev.javacore.chapter21;
 
 import javax.naming.directory.BasicAttributes;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -8,12 +9,15 @@ import java.nio.file.Paths;
 import java.nio.file.attribute.BasicFileAttributes;
 
 public class PathDemo {
-    public static void main(String[] args) {
-        Path filePath = Paths.get("d:/example/test.txt");
-
+    private static String HOME = System.getProperty("user.home");
+    public static void main(String[] args) throws IOException {
+        Path filePath = Paths.get("CRUDconsole\\src\\main\\resources\\writers.json");
+        File file = filePath.toFile();
+        System.out.println("Absolute Path to file: " + file.getAbsolutePath());
         System.out.println("File name: " + filePath.getName(1));
         System.out.println("Path to file: " + filePath);
         System.out.println("Absolute Path to file: " + filePath.toAbsolutePath());
+
 
         System.out.println("Parent catalog: " + filePath.getParent());
 
@@ -24,7 +28,7 @@ public class PathDemo {
             if(Files.isHidden(filePath)) System.out.println("File is hidden");
             else System.out.println("File is not hidden");
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e);
         }
 
        if(Files.isWritable(filePath)) System.out.println("File is available for write");

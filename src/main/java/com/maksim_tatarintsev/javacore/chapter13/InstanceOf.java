@@ -12,7 +12,7 @@ public class InstanceOf {
         if(b instanceof B) System.out.println("b является экземпляром B");
         if(c instanceof C) System.out.println("c является экземпляром C");
         if(c instanceof A) System.out.println("с можно приветси к типу А");
-        if(a instanceof C) System.out.println("а можно приветси к типу С");
+        if(a instanceof C) System.out.println("а нельзя приветси к типу С");
         System.out.println();
 
         A ob;
